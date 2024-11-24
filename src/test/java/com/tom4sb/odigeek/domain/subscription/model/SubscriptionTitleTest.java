@@ -12,4 +12,10 @@ final class SubscriptionTitleTest {
         .isInstanceOf(IllegalArgumentException.class);
   }
 
+  @Test
+  void should_fail_with_invalid_value() {
+    assertThatThrownBy(() -> new SubscriptionTitle("INVALID_TITLE"))
+        .isInstanceOf(IllegalArgumentException.class);
+  }
+
 }
