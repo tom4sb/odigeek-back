@@ -1,5 +1,6 @@
 package com.tom4sb.odigeek.application.subscription.command.create;
 
+import com.tom4sb.odigeek.domain.shared.messaging.CommandHandler;
 import com.tom4sb.odigeek.domain.subscription.model.Subscription;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionCategories;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionDataLoader;
@@ -11,7 +12,8 @@ import com.tom4sb.odigeek.domain.subscription.model.Subscriptions;
 import org.springframework.stereotype.Service;
 
 @Service
-public final class CreateSubscriptionHandler {
+public final class CreateSubscriptionHandler
+    implements CommandHandler<CreateSubscription> {
 
   private final SubscriptionDataLoader subscriptionDataLoader;
   private final Subscriptions subscriptions;

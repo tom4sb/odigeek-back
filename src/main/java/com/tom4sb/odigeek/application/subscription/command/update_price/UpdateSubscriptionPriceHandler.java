@@ -1,12 +1,14 @@
 package com.tom4sb.odigeek.application.subscription.command.update_price;
 
+import com.tom4sb.odigeek.domain.shared.messaging.CommandHandler;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionId;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionPrice;
 import com.tom4sb.odigeek.domain.subscription.model.Subscriptions;
 import org.springframework.stereotype.Service;
 
 @Service
-public final class UpdateSubscriptionPriceHandler {
+public final class UpdateSubscriptionPriceHandler
+    implements CommandHandler<UpdateSubscriptionPrice> {
 
   private final Subscriptions subscriptions;
 

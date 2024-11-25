@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.infrastructure.api.subscription;
 
 import com.tom4sb.odigeek.application.subscription.command.create.CreateSubscription;
-import com.tom4sb.odigeek.application.subscription.command.create.CreateSubscriptionHandler;
+import com.tom4sb.odigeek.domain.shared.messaging.CommandBus;
 import java.util.List;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
@@ -15,10 +15,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class CreateSubscriptionController {
 
-  private final CreateSubscriptionHandler handler;
+  private final CommandBus commandBus;
 
-  public CreateSubscriptionController(final CreateSubscriptionHandler handler) {
-    this.handler = handler;
+  public CreateSubscriptionController(final CommandBus commandBus) {
+    this.commandBus = commandBus;
   }
 
   @PostMapping("/subscription")
@@ -33,7 +33,7 @@ public class CreateSubscriptionController {
         request.description
     );
 
-    handler.handle(command);
+    commandBus.dispatch(command);
   }
 
   static final class CreateSubscriptionRequest {

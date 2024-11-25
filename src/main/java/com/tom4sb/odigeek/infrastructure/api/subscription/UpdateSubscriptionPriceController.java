@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.infrastructure.api.subscription;
 
 import com.tom4sb.odigeek.application.subscription.command.update_price.UpdateSubscriptionPrice;
-import com.tom4sb.odigeek.application.subscription.command.update_price.UpdateSubscriptionPriceHandler;
+import com.tom4sb.odigeek.domain.shared.messaging.CommandBus;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -14,10 +14,10 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 public class UpdateSubscriptionPriceController {
 
-  private final UpdateSubscriptionPriceHandler handler;
+  private final CommandBus commandBus;
 
-  public UpdateSubscriptionPriceController(final UpdateSubscriptionPriceHandler handler) {
-    this.handler = handler;
+  public UpdateSubscriptionPriceController(final CommandBus commandBus) {
+    this.commandBus = commandBus;
   }
 
   @PatchMapping("/subscription")
@@ -29,7 +29,7 @@ public class UpdateSubscriptionPriceController {
         request.currency
     );
 
-    handler.handle(command);
+    commandBus.dispatch(command);
   }
 
   static final class UpdateSubscriptionPriceRequest {

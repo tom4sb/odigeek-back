@@ -1,8 +1,10 @@
 package com.tom4sb.odigeek.application.subscription.command.update_price;
 
+import com.tom4sb.odigeek.domain.shared.messaging.Command;
 import java.util.UUID;
 
-public final class UpdateSubscriptionPrice {
+public final class UpdateSubscriptionPrice
+    extends Command {
 
   private final UUID id;
   private final Double price;

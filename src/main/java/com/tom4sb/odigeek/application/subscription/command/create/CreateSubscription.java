@@ -1,9 +1,11 @@
 package com.tom4sb.odigeek.application.subscription.command.create;
 
+import com.tom4sb.odigeek.domain.shared.messaging.Command;
 import java.util.List;
 import java.util.UUID;
 
-public final class CreateSubscription {
+public final class CreateSubscription
+    extends Command {
 
   private final UUID id;
   private final String title;

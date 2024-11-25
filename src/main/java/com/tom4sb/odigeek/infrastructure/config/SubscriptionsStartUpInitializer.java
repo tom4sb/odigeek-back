@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.infrastructure.config;
 
 import com.tom4sb.odigeek.application.subscription.command.create.CreateSubscription;
-import com.tom4sb.odigeek.application.subscription.command.create.CreateSubscriptionHandler;
+import com.tom4sb.odigeek.domain.shared.messaging.CommandBus;
 import com.tom4sb.odigeek.infrastructure.config.SubscriptionsProperties.DefaultSubscriptionsProperties;
 import java.util.Arrays;
 import java.util.Collections;
@@ -17,14 +17,14 @@ public class SubscriptionsStartUpInitializer
 
   private static final String PROFILE_ARG = "profile";
   private static final String PROFILE_ARG_SEPARATOR = ",";
-  private final CreateSubscriptionHandler handler;
+  private final CommandBus commandBus;
   private final SubscriptionsProperties subscriptionsProperties;
 
   public SubscriptionsStartUpInitializer(
-      final CreateSubscriptionHandler handler,
+      final CommandBus commandBus,
       final SubscriptionsProperties subscriptionsProperties
   ) {
-    this.handler = handler;
+    this.commandBus = commandBus;
     this.subscriptionsProperties = subscriptionsProperties;
   }
 
@@ -61,7 +61,7 @@ public class SubscriptionsStartUpInitializer
         defaultProperties.description()
     );
 
-    handler.handle(command); // TODO use command bus
+    commandBus.dispatch(command);
   }
 
 }
