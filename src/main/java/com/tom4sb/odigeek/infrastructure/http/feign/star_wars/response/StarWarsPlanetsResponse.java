@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.infrastructure.http.feign.star_wars.response;
 
-import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent.ContentType.DATA;
-import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent.ContentType.FIGURES;
+import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent.ContentFamily.DATA;
+import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent.ContentFamily.FIGURES;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.ObjectMapper;

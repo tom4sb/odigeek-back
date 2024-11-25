@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.infrastructure.domain.subscription;
 
-import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent.ContentType.DATA;
-import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent.ContentType.FIGURES;
+import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent.ContentFamily.DATA;
+import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent.ContentFamily.FIGURES;
 import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle.SubscriptionTitleValue.SupplierOption.HUMANS;
 import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle.SubscriptionTitleValue.SupplierOption.SAIYANS;
 

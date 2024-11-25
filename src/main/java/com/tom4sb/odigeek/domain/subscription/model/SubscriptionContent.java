@@ -5,7 +5,7 @@ import java.util.Map;
 import java.util.Objects;
 
 public record SubscriptionContent(
-    Map<ContentType, List<SubscriptionContentInfo>> values
+    Map<ContentFamily, List<SubscriptionContentInfo>> values
 ) {
 
   public SubscriptionContent {
@@ -22,7 +22,7 @@ public record SubscriptionContent(
   }
 
 
-  public enum ContentType {
+  public enum ContentFamily {
     DATA,
     FIGURES
   }
