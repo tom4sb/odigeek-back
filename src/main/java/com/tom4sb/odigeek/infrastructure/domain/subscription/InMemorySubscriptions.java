@@ -20,20 +20,24 @@ public class InMemorySubscriptions
 
   @Override
   public void save(final Subscription subscription) {
-    final var savedSubscription = Optional.ofNullable(
-        subscriptions.putIfAbsent(subscription.id(), subscription)
-    );
+    subscriptions.put(subscription.getId(), subscription);
 
-    savedSubscription.ifPresentOrElse(
-        value -> log.info("Subscription with ID {} already exists!", value.id().value()),
-        () -> log.info("Subscription with ID {} and title {} saved!",
-            subscription.id().value(), subscription.title().getValue())
+    log.info("Subscription with ID {}, title {} and price {} {} saved!",
+        subscription.getId().value(),
+        subscription.getTitle().getValue(),
+        subscription.getPrice().getPrice(),
+        subscription.getPrice().getCurrency().getCurrencyCode()
     );
   }
 
   @Override
-  public List<Subscription> findAll() {
+  public List<Subscription> getAll() {
     return subscriptions.values().stream().toList();
+  }
+
+  @Override
+  public Optional<Subscription> get(final SubscriptionId id) {
+    return Optional.ofNullable(subscriptions.get(id));
   }
 
 }

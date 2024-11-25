@@ -3,14 +3,30 @@ package com.tom4sb.odigeek.domain.subscription.model;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-public record Subscription(
-    SubscriptionId id,
-    SubscriptionTitle title,
-    SubscriptionCategories categories,
-    SubscriptionPrice price,
-    SubscriptionDescription description,
-    SubscriptionContent content
-) {
+public class Subscription {
+
+  private final SubscriptionId id;
+  private final SubscriptionTitle title;
+  private final SubscriptionCategories categories;
+  private SubscriptionPrice price;
+  private final SubscriptionDescription description;
+  private final SubscriptionContent content;
+
+  private Subscription(
+      final SubscriptionId id,
+      final SubscriptionTitle title,
+      final SubscriptionCategories categories,
+      final SubscriptionPrice price,
+      final SubscriptionDescription description,
+      final SubscriptionContent content
+  ) {
+    this.id = id;
+    this.title = title;
+    this.categories = categories;
+    this.price = price;
+    this.description = description;
+    this.content = content;
+  }
 
   public static Subscription create(
       final SubscriptionId id,
@@ -21,6 +37,34 @@ public record Subscription(
       final SubscriptionContent content
   ) {
     return new Subscription(id, title, categories, price, description, content);
+  }
+
+  public SubscriptionId getId() {
+    return id;
+  }
+
+  public SubscriptionTitle getTitle() {
+    return title;
+  }
+
+  public SubscriptionCategories getCategories() {
+    return categories;
+  }
+
+  public SubscriptionPrice getPrice() {
+    return price;
+  }
+
+  public SubscriptionDescription getDescription() {
+    return description;
+  }
+
+  public SubscriptionContent getContent() {
+    return content;
+  }
+
+  public void updatePrice(final SubscriptionPrice price) {
+    this.price = price;
   }
 
   @Override
