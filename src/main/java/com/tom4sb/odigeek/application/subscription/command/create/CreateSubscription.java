@@ -1,4 +1,4 @@
-package com.tom4sb.odigeek.domain.subscription.command.create;
+package com.tom4sb.odigeek.application.subscription.command.create;
 
 import java.util.List;
 import java.util.UUID;

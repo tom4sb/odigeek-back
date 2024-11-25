@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.infrastructure.config;
 
-import com.tom4sb.odigeek.domain.subscription.command.create.CreateSubscription;
-import com.tom4sb.odigeek.domain.subscription.command.create.CreateSubscriptionHandler;
+import com.tom4sb.odigeek.application.subscription.command.create.CreateSubscription;
+import com.tom4sb.odigeek.application.subscription.command.create.CreateSubscriptionHandler;
 import com.tom4sb.odigeek.infrastructure.config.SubscriptionsProperties.DefaultSubscriptionsProperties;
 import java.util.Arrays;
 import java.util.Collections;
