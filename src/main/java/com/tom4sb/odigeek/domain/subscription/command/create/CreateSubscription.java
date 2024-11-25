@@ -1,9 +1,11 @@
 package com.tom4sb.odigeek.domain.subscription.command.create;
 
 import java.util.List;
+import java.util.UUID;
 
 public final class CreateSubscription {
 
+  private final UUID id;
   private final String title;
   private final List<String> categories;
   private final Double price;
@@ -11,17 +13,23 @@ public final class CreateSubscription {
   private final String description;
 
   public CreateSubscription(
+      final UUID id,
       final String title,
       final List<String> categories,
       final Double price,
       final String currencyCode,
       final String description
   ) {
+    this.id = id;
     this.title = title;
     this.categories = categories;
     this.price = price;
     this.currencyCode = currencyCode;
     this.description = description;
+  }
+
+  public UUID getId() {
+    return id;
   }
 
   public String getTitle() {

@@ -1,0 +1,33 @@
+spring:
+  profiles:
+    active: ${profile}
+subscriptions:
+  defaults:
+    - id: "a0ca196f-ea14-4e02-a951-34194151f042"
+      title: "DRAGON_BALL_HUMANS"
+      supplier: "dragon-ball"
+      categories: [ "ANIME" ]
+      price: 5.0
+      currency: "EUR"
+      description: "Get all Dragon Ball humans!"
+    - id: "af5c1e52-e40d-40d1-ad7c-b91ded37a332"
+      title: "DRAGON_BALL_SAIYANS"
+      supplier: "dragon-ball"
+      categories: [ "ANIME" ]
+      price: 5.0
+      currency: "EUR"
+      description: "Get all Dragon Ball saiyans!"
+    - id: "b298de74-e38c-4917-b608-d631fff94c29"
+      title: "STAR_WARS_PEOPLE"
+      supplier: "star-wars"
+      categories: [ "ANIME" ]
+      price: 5.0
+      currency: "EUR"
+      description: "Get all Star Wars people!"
+    - id: "450242b2-2d25-41a6-b532-337f387e4e6d"
+      title: "STAR_WARS_PLANETS"
+      supplier: "star-wars"
+      categories: [ "ANIME" ]
+      price: 5.0
+      currency: "EUR"
+      description: "Get all Star Wars planets!"
