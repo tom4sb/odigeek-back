@@ -6,6 +6,7 @@ import com.tom4sb.odigeek.domain.subscription.model.Subscriptions;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -19,10 +20,15 @@ public class InMemorySubscriptions
 
   @Override
   public void save(final Subscription subscription) {
-    subscriptions.put(subscription.id(), subscription);
+    final var savedSubscription = Optional.ofNullable(
+        subscriptions.putIfAbsent(subscription.id(), subscription)
+    );
 
-    log.info("Subscription with ID {} and title {} saved!",
-        subscription.id().value(), subscription.title().getValue());
+    savedSubscription.ifPresentOrElse(
+        value -> log.info("Subscription with ID {} already exists!", value.id().value()),
+        () -> log.info("Subscription with ID {} and title {} saved!",
+            subscription.id().value(), subscription.title().getValue())
+    );
   }
 
   @Override

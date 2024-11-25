@@ -12,7 +12,7 @@ import org.springframework.boot.ApplicationRunner;
 import org.springframework.stereotype.Component;
 
 @Component
-public class StartUpSubscriptionsInitializer
+public class SubscriptionsStartUpInitializer
     implements ApplicationRunner {
 
   private static final String PROFILE_ARG = "profile";
@@ -20,7 +20,7 @@ public class StartUpSubscriptionsInitializer
   private final CreateSubscriptionHandler handler;
   private final SubscriptionsProperties subscriptionsProperties;
 
-  public StartUpSubscriptionsInitializer(
+  public SubscriptionsStartUpInitializer(
       final CreateSubscriptionHandler handler,
       final SubscriptionsProperties subscriptionsProperties
   ) {
