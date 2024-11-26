@@ -11,6 +11,7 @@ public class Subscription {
   private SubscriptionPrice price;
   private final SubscriptionDescription description;
   private SubscriptionContent content;
+  private final SubscriptionStatus status;
 
   private Subscription(
       final SubscriptionId id,
@@ -18,7 +19,8 @@ public class Subscription {
       final SubscriptionCategories categories,
       final SubscriptionPrice price,
       final SubscriptionDescription description,
-      final SubscriptionContent content
+      final SubscriptionContent content,
+      final SubscriptionStatus status
   ) {
     this.id = id;
     this.title = title;
@@ -26,6 +28,7 @@ public class Subscription {
     this.price = price;
     this.description = description;
     this.content = content;
+    this.status = status;
   }
 
   public static Subscription create(
@@ -34,9 +37,10 @@ public class Subscription {
       final SubscriptionCategories categories,
       final SubscriptionPrice price,
       final SubscriptionDescription description,
-      final SubscriptionContent content
+      final SubscriptionContent content,
+      final SubscriptionStatus status
   ) {
-    return new Subscription(id, title, categories, price, description, content);
+    return new Subscription(id, title, categories, price, description, content, status);
   }
 
   public SubscriptionId getId() {
@@ -63,11 +67,23 @@ public class Subscription {
     return content;
   }
 
+  public SubscriptionStatus getStatus() {
+    return status;
+  }
+
   public void updatePrice(final SubscriptionPrice price) {
+    if (status.isInactive()) {
+      return;
+    }
+
     this.price = price;
   }
 
   public void updateContent(final SubscriptionContent content) {
+    if (status.isInactive()) {
+      return;
+    }
+
     this.content = content;
   }
 
@@ -83,6 +99,7 @@ public class Subscription {
           ", price=" + price +
           ", description=" + description +
           ", content=" + content +
+          ", status=" + status +
           '}';
     }
   }
