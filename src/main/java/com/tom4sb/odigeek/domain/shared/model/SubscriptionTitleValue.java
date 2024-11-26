@@ -38,7 +38,7 @@ public enum SubscriptionTitleValue {
   public static Optional<SubscriptionTitleValue> create(final String titleName) {
     try {
       return Optional.of(SubscriptionTitleValue.valueOf(titleName));
-    } catch (final IllegalArgumentException e) {
+    } catch (final IllegalArgumentException | NullPointerException e) {
       return Optional.empty();
     }
   }

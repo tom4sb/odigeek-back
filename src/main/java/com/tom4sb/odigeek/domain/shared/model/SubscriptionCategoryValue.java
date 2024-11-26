@@ -11,7 +11,7 @@ public enum SubscriptionCategoryValue {
   public static Optional<SubscriptionCategoryValue> create(final String categoryName) {
     try {
       return Optional.of(SubscriptionCategoryValue.valueOf(categoryName));
-    } catch (final IllegalArgumentException e) {
+    } catch (final IllegalArgumentException | NullPointerException e) {
       return Optional.empty();
     }
   }

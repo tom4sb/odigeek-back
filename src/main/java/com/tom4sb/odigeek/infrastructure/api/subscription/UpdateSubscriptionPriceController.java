@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping(value = "/odigeek/api")
+@RequestMapping(value = "/odigeek/api/subscription")
 @RestController
 public class UpdateSubscriptionPriceController {
 
@@ -20,7 +20,7 @@ public class UpdateSubscriptionPriceController {
     this.commandBus = commandBus;
   }
 
-  @PatchMapping("/subscription")
+  @PatchMapping
   @ResponseStatus(HttpStatus.OK) // TODO if fails, must return 304 (Not Modified), 400 (Bad Request), or 422 (Unprocessable Entity)
   public void action(@RequestBody final UpdateSubscriptionPriceRequest request) {
     final var command = new UpdateSubscriptionPrice(

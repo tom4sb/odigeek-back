@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-@RequestMapping(value = "/odigeek/api")
+@RequestMapping(value = "/odigeek/api/subscription")
 @RestController
 public class CreateSubscriptionController {
 
@@ -21,7 +21,7 @@ public class CreateSubscriptionController {
     this.commandBus = commandBus;
   }
 
-  @PostMapping("/subscription")
+  @PostMapping
   @ResponseStatus(HttpStatus.CREATED) // TODO must return 403 if exists
   public void action(@RequestBody final CreateSubscriptionRequest request) {
     final var command = new CreateSubscription(

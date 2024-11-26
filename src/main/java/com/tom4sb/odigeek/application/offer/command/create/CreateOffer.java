@@ -1,13 +1,10 @@
 package com.tom4sb.odigeek.application.offer.command.create;
 
 import com.tom4sb.odigeek.domain.shared.messaging.Command;
-import java.time.Instant;
-import java.util.UUID;
 
 public final class CreateOffer
     extends Command {
 
-  private final UUID id;
   private final String title;
   private final String description;
   private final Double ruleMultiplier;
@@ -15,11 +12,10 @@ public final class CreateOffer
   private final String scope;
   private final String scopeTitle;
   private final String scopeCategory;
-  private final Instant periodStart;
-  private final Instant periodEnd;
+  private final String periodStart;
+  private final String periodEnd;
 
   public CreateOffer(
-      final UUID id,
       final String title,
       final String description,
       final Double ruleMultiplier,
@@ -27,10 +23,9 @@ public final class CreateOffer
       final String scope,
       final String scopeTitle,
       final String scopeCategory,
-      final Instant periodStart,
-      final Instant periodEnd
+      final String periodStart,
+      final String periodEnd
   ) {
-    this.id = id;
     this.title = title;
     this.description = description;
     this.ruleMultiplier = ruleMultiplier;
@@ -40,10 +35,6 @@ public final class CreateOffer
     this.scopeCategory = scopeCategory;
     this.periodStart = periodStart;
     this.periodEnd = periodEnd;
-  }
-
-  public UUID getId() {
-    return id;
   }
 
   public String getTitle() {
@@ -74,11 +65,11 @@ public final class CreateOffer
     return scopeCategory;
   }
 
-  public Instant getPeriodStart() {
+  public String getPeriodStart() {
     return periodStart;
   }
 
-  public Instant getPeriodEnd() {
+  public String getPeriodEnd() {
     return periodEnd;
   }
 
