@@ -6,6 +6,7 @@ import static com.tom4sb.odigeek.domain.shared.model.SubscriptionTitleValue.Supp
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle;
 import com.tom4sb.odigeek.infrastructure.http.feign.star_wars.FeignStarWarsHttpClient;
+import java.util.Collections;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -19,13 +20,14 @@ public class StarWarsSupplierDataLoader
   }
 
   @Override
-  public SubscriptionContent load(final SubscriptionTitle title) { // TODO Improve this method
+  public SubscriptionContent load(final SubscriptionTitle title) {
     if (PEOPLE == title.getValue().getSupplierOption()) {
       return httpClient.loadPeople().parseToContent();
     } else if (PLANETS == title.getValue().getSupplierOption()) {
       return httpClient.loadPlanets().parseToContent();
+    } else {
+      return new SubscriptionContent(Collections.emptyMap());
     }
-    throw new IllegalArgumentException("Incorrect option");
   }
 
 }

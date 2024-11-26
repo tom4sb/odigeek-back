@@ -32,7 +32,7 @@ public record StarWarsPlanetsResponse(
   }
 
   private List<SubscriptionContentInfo> buildFiguresContentInfo() {
-    return Collections.emptyList(); // TODO maybe add some random data
+    return Collections.emptyList(); // TODO Fill when figures are acquired
   }
 
 }

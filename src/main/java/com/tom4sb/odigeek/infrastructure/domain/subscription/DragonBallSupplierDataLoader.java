@@ -55,7 +55,7 @@ public class DragonBallSupplierDataLoader
   }
 
   private List<SubscriptionContentInfo> buildFiguresContentInfo() {
-    return Collections.emptyList(); // TODO maybe add some random data
+    return Collections.emptyList(); // TODO Fill when figures are acquired
   }
 
   private String getCharacterRaceOption(final SubscriptionTitle title) {
