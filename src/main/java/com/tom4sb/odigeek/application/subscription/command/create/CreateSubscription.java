@@ -13,6 +13,7 @@ public final class CreateSubscription
   private final Double priceAmount;
   private final String priceCurrency;
   private final String description;
+  private final Boolean active;
 
   public CreateSubscription(
       final UUID id,
@@ -20,7 +21,8 @@ public final class CreateSubscription
       final List<String> categories,
       final Double priceAmount,
       final String priceCurrency,
-      final String description
+      final String description,
+      final Boolean active
   ) {
     this.id = id;
     this.title = title;
@@ -28,6 +30,7 @@ public final class CreateSubscription
     this.priceAmount = priceAmount;
     this.priceCurrency = priceCurrency;
     this.description = description;
+    this.active = active;
   }
 
   public UUID getId() {
@@ -52,6 +55,10 @@ public final class CreateSubscription
 
   public String getDescription() {
     return description;
+  }
+
+  public Boolean getActive() {
+    return active;
   }
 
 }

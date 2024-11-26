@@ -23,14 +23,15 @@ public class InMemorySubscriptions
   public void save(final Subscription subscription) {
     subscriptions.put(subscription.getId(), subscription);
 
-    log.info("Subscription with ID {}, title {}, categories {}, and price {} {} saved!",
+    log.info("Subscription with ID {}, title {}, categories {}, and price {} {} and active={} saved!",
         subscription.getId().value(),
         subscription.getTitle().getValue(),
         String.join("|", subscription.getCategories().getValues().stream()
             .map(Enum::name)
             .toList()),
         subscription.getPrice().getAmount(),
-        subscription.getPrice().getCurrency().value()
+        subscription.getPrice().getCurrency().value(),
+        subscription.getStatus().value()
     );
   }
 

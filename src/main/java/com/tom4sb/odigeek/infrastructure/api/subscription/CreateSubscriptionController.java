@@ -30,7 +30,8 @@ public class CreateSubscriptionController {
         request.categories,
         request.priceAmount,
         request.priceCurrency,
-        request.description
+        request.description,
+        request.active
     );
 
     commandBus.dispatch(command);
@@ -43,6 +44,7 @@ public class CreateSubscriptionController {
     public Double priceAmount;
     public String priceCurrency;
     public String description;
+    public Boolean active;
   }
 
 }

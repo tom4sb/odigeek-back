@@ -24,8 +24,8 @@ public class SubscriptionsContentUpdaterTask {
     this.subscriptionsProperties = subscriptionsProperties;
   }
 
-  @Scheduled(cron = "*/5 * * * * *") // TODO Every 5 seconds
-  //@Scheduled(cron = "0 0 1 * * MON-FRI") // Every weekday, from Monday to Friday, at 01:00 am
+  //@Scheduled(cron = "*/5 * * * * *") // Every 5 seconds
+  @Scheduled(cron = "0 0 1 * * MON-FRI") // Every weekday, from Monday to Friday, at 01:00 am
   public void run() {
     log.info("********** Starting task to update subscriptions content... **********");
 

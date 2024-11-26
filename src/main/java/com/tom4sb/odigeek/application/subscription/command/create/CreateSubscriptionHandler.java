@@ -7,6 +7,7 @@ import com.tom4sb.odigeek.domain.subscription.model.SubscriptionDataLoader;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionDescription;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionId;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionPrice;
+import com.tom4sb.odigeek.domain.subscription.model.SubscriptionStatus;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle;
 import com.tom4sb.odigeek.domain.subscription.model.Subscriptions;
 import org.springframework.stereotype.Service;
@@ -33,6 +34,7 @@ public final class CreateSubscriptionHandler
     final var categories = new SubscriptionCategories(command.getCategories());
     final var price = new SubscriptionPrice(command.getPriceAmount(), command.getPriceCurrency());
     final var description = new SubscriptionDescription(command.getDescription());
+    final var status = new SubscriptionStatus(command.getActive());
     final var content = subscriptionDataLoader.load(title);
 
     final var subscription = Subscription.create(
@@ -41,7 +43,8 @@ public final class CreateSubscriptionHandler
         categories,
         price,
         description,
-        content
+        content,
+        status
     );
 
     subscriptions.save(subscription);

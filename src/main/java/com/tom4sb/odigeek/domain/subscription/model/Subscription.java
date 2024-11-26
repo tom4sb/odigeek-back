@@ -11,7 +11,7 @@ public class Subscription {
   private SubscriptionPrice price;
   private final SubscriptionDescription description;
   private SubscriptionContent content;
-  private final SubscriptionStatus status;
+  private SubscriptionStatus status;
 
   private Subscription(
       final SubscriptionId id,
@@ -85,6 +85,10 @@ public class Subscription {
     }
 
     this.content = content;
+  }
+
+  public void updateStatus(final SubscriptionStatus status) {
+    this.status = status;
   }
 
   @Override

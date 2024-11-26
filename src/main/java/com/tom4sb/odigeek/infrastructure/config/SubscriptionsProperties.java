@@ -15,7 +15,8 @@ public record SubscriptionsProperties(
       List<String> categories,
       float priceAmount,
       String priceCurrency,
-      String description
+      String description,
+      boolean active
   ) {
 
   }

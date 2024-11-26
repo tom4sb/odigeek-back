@@ -1,7 +1,8 @@
 package com.tom4sb.odigeek.infrastructure.config;
 
-import com.tom4sb.odigeek.application.subscription.command.create.CreateSubscription;
 import com.tom4sb.odigeek.application.shared.messaging.CommandBus;
+import com.tom4sb.odigeek.application.subscription.command.create.CreateSubscription;
+import com.tom4sb.odigeek.application.subscription.command.update_status.UpdateSubscriptionStatus;
 import com.tom4sb.odigeek.infrastructure.config.SubscriptionsProperties.DefaultSubscriptionsProperties;
 import java.util.Arrays;
 import java.util.Collections;
@@ -29,11 +30,33 @@ public class SubscriptionsStartUpInitializer
   }
 
   @Override
-  public void run(final ApplicationArguments args) throws Exception {
-    extractSuppliers(args).forEach(this::createSupplierSubscriptions);
+  public void run(final ApplicationArguments args) {
+    final var allProperties = subscriptionsProperties.defaults();
+    createSubscriptions(allProperties);
+
+    extractProfileSuppliers(args)
+        .forEach(supplier -> activateSubscriptions(allProperties, supplier));
   }
 
-  private List<String> extractSuppliers(final ApplicationArguments args) {
+  private void createSubscriptions(final List<DefaultSubscriptionsProperties> allProperties) {
+    allProperties.forEach(this::createSubscription);
+  }
+
+  private void createSubscription(final DefaultSubscriptionsProperties subscriptionProperties) {
+    final var command = new CreateSubscription(
+        UUID.fromString(subscriptionProperties.id()),
+        subscriptionProperties.title(),
+        subscriptionProperties.categories(),
+        (double) subscriptionProperties.priceAmount(),
+        subscriptionProperties.priceCurrency(),
+        subscriptionProperties.description(),
+        subscriptionProperties.active()
+    );
+
+    commandBus.dispatch(command);
+  }
+
+  private List<String> extractProfileSuppliers(final ApplicationArguments args) {
     if (!args.containsOption(PROFILE_ARG)) {
       return Collections.emptyList();
     }
@@ -41,24 +64,26 @@ public class SubscriptionsStartUpInitializer
     return Arrays.asList(args.getOptionValues(PROFILE_ARG).getFirst().split(PROFILE_ARG_SEPARATOR));
   }
 
-  private void createSupplierSubscriptions(final String supplier) {
-    findSupplierDefaultProperties(supplier).forEach(this::createSubscription);
+  private void activateSubscriptions(
+      final List<DefaultSubscriptionsProperties> allProperties,
+      final String supplier
+  ) {
+    findSuppliersubscriptionsProperties(allProperties, supplier).forEach(this::activateSubscription);
   }
 
-  private List<DefaultSubscriptionsProperties> findSupplierDefaultProperties(final String supplier) {
-    return subscriptionsProperties.defaults().stream()
-        .filter(defaultConfig -> supplier.equals(defaultConfig.supplier()))
+  private List<DefaultSubscriptionsProperties> findSuppliersubscriptionsProperties(
+      final List<DefaultSubscriptionsProperties> allProperties,
+      final String supplier
+  ) {
+    return allProperties.stream()
+        .filter(subscriptionProperties -> supplier.equals(subscriptionProperties.supplier()))
         .toList();
   }
 
-  private void createSubscription(final DefaultSubscriptionsProperties defaultProperties) {
-    final var command = new CreateSubscription(
-        UUID.fromString(defaultProperties.id()),
-        defaultProperties.title(),
-        defaultProperties.categories(),
-        (double) defaultProperties.priceAmount(),
-        defaultProperties.priceCurrency(),
-        defaultProperties.description()
+  private void activateSubscription(final DefaultSubscriptionsProperties subscriptionProperties) {
+    final var command = new UpdateSubscriptionStatus(
+        UUID.fromString(subscriptionProperties.id()),
+        Boolean.TRUE
     );
 
     commandBus.dispatch(command);
