@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 
 @FeignClient(
     value = "starWarsHttpClient",
-    url = "https://swapi.dev/api" // TODO move to config file
+    url = "${subscriptions.suppliers.star-wars.api-base-url}"
 )
 public interface FeignStarWarsHttpClient {
 

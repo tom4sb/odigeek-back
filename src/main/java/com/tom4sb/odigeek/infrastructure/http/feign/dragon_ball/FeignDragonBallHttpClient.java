@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 @FeignClient(
     value = "dragonBallHttpClient",
-    url = "https://dragonball-api.com/api" // TODO move to config file
+    url = "${subscriptions.suppliers.dragon-ball.api-base-url}"
 )
 public interface FeignDragonBallHttpClient {
 

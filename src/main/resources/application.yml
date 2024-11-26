@@ -2,6 +2,11 @@ spring:
   profiles:
     active: ${profile}
 subscriptions:
+  suppliers:
+    dragon-ball:
+      api-base-url: "https://dragonball-api.com/api"
+    star-wars:
+      api-base-url: "https://swapi.dev/api"
   defaults:
     - id: "a0ca196f-ea14-4e02-a951-34194151f042"
       title: "DRAGON_BALL_HUMANS"
