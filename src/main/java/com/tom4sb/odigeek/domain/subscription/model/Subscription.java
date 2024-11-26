@@ -10,7 +10,7 @@ public class Subscription {
   private final SubscriptionCategories categories;
   private SubscriptionPrice price;
   private final SubscriptionDescription description;
-  private final SubscriptionContent content;
+  private SubscriptionContent content;
 
   private Subscription(
       final SubscriptionId id,
@@ -65,6 +65,10 @@ public class Subscription {
 
   public void updatePrice(final SubscriptionPrice price) {
     this.price = price;
+  }
+
+  public void updateContent(final SubscriptionContent content) {
+    this.content = content;
   }
 
   @Override

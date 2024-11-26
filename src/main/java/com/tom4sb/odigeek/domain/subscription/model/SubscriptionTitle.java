@@ -19,4 +19,18 @@ public class SubscriptionTitle {
     return value;
   }
 
+  @Override
+  public boolean equals(final Object o) {
+    if (o == null || getClass() != o.getClass()) {
+      return false;
+    }
+    final SubscriptionTitle that = (SubscriptionTitle) o;
+    return value == that.value;
+  }
+
+  @Override
+  public int hashCode() {
+    return Objects.hashCode(value);
+  }
+
 }

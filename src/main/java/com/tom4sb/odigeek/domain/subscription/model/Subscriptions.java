@@ -11,4 +11,6 @@ public interface Subscriptions {
 
   Optional<Subscription> get(SubscriptionId id);
 
+  Optional<Subscription> findByTitle(SubscriptionTitle title);
+
 }

@@ -2,13 +2,12 @@ package com.tom4sb.odigeek.infrastructure.domain.subscription;
 
 import com.tom4sb.odigeek.domain.subscription.model.Subscription;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionId;
+import com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle;
 import com.tom4sb.odigeek.domain.subscription.model.Subscriptions;
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
-import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -18,7 +17,7 @@ public class InMemorySubscriptions
     implements Subscriptions {
 
   private static final Logger log = LoggerFactory.getLogger(InMemorySubscriptions.class);
-  private static final Map<SubscriptionId, Subscription> subscriptions = new HashMap<>();
+  private Map<SubscriptionId, Subscription> subscriptions = new HashMap<>();
 
   @Override
   public void save(final Subscription subscription) {
@@ -43,6 +42,21 @@ public class InMemorySubscriptions
   @Override
   public Optional<Subscription> get(final SubscriptionId id) {
     return Optional.ofNullable(subscriptions.get(id));
+  }
+
+  @Override
+  public Optional<Subscription> findByTitle(final SubscriptionTitle title) {
+    return subscriptions.values().stream()
+        .filter(subscription -> subscription.getTitle().equals(title))
+        .findFirst();
+  }
+
+  public Map<SubscriptionId, Subscription> getSubscriptions() {
+    return subscriptions;
+  }
+
+  public void setSubscriptions(final Map<SubscriptionId, Subscription> subscriptions) {
+    this.subscriptions = subscriptions;
   }
 
 }
