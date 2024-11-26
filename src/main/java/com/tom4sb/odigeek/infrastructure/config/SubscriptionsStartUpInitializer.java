@@ -56,8 +56,8 @@ public class SubscriptionsStartUpInitializer
         UUID.fromString(defaultProperties.id()),
         defaultProperties.title(),
         defaultProperties.categories(),
-        (double) defaultProperties.price(),
-        defaultProperties.currency(),
+        (double) defaultProperties.priceAmount(),
+        defaultProperties.priceCurrency(),
         defaultProperties.description()
     );
 

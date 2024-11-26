@@ -25,8 +25,8 @@ public class InMemorySubscriptions
     log.info("Subscription with ID {}, title {} and price {} {} saved!",
         subscription.getId().value(),
         subscription.getTitle().getValue(),
-        subscription.getPrice().getPrice(),
-        subscription.getPrice().getCurrency().getCurrencyCode()
+        subscription.getPrice().getAmount(),
+        subscription.getPrice().getCurrency()
     );
   }
 

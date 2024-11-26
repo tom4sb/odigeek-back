@@ -13,8 +13,8 @@ public record SubscriptionsProperties(
       String title,
       String supplier,
       List<String> categories,
-      float price,
-      String currency,
+      float priceAmount,
+      String priceCurrency,
       String description
   ) {
 

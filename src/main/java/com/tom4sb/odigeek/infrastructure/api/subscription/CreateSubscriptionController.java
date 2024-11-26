@@ -28,8 +28,8 @@ public class CreateSubscriptionController {
         UUID.fromString(request.id),
         request.title,
         request.categories,
-        request.price,
-        request.currency,
+        request.priceAmount,
+        request.priceCurrency,
         request.description
     );
 
@@ -40,8 +40,8 @@ public class CreateSubscriptionController {
     public String id;
     public String title;
     public List<String> categories;
-    public Double price;
-    public String currency;
+    public Double priceAmount;
+    public String priceCurrency;
     public String description;
   }
 

@@ -30,7 +30,7 @@ public final class CreateSubscriptionHandler
     final var id = new SubscriptionId(command.getId());
     final var title = new SubscriptionTitle(command.getTitle());
     final var categories = new SubscriptionCategories(command.getCategories());
-    final var price = new SubscriptionPrice(command.getPrice(), command.getCurrencyCode());
+    final var price = new SubscriptionPrice(command.getPriceAmount(), command.getPriceCurrency());
     final var description = new SubscriptionDescription(command.getDescription());
     final var content = subscriptionDataLoader.load(title);
 

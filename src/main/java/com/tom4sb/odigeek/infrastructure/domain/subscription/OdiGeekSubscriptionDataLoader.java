@@ -1,12 +1,12 @@
 package com.tom4sb.odigeek.infrastructure.domain.subscription;
 
-import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle.SubscriptionTitleValue.SupplierName.DRAGON_BALL;
-import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle.SubscriptionTitleValue.SupplierName.STAR_WARS;
+import static com.tom4sb.odigeek.domain.shared.model.SubscriptionTitleValue.SupplierName.DRAGON_BALL;
+import static com.tom4sb.odigeek.domain.shared.model.SubscriptionTitleValue.SupplierName.STAR_WARS;
 
+import com.tom4sb.odigeek.domain.shared.model.SubscriptionTitleValue.SupplierName;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionDataLoader;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle;
-import com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle.SubscriptionTitleValue.SupplierName;
 import java.util.HashMap;
 import java.util.Map;
 import org.springframework.stereotype.Component;

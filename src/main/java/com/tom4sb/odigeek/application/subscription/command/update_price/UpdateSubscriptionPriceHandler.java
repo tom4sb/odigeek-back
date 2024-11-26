@@ -19,7 +19,7 @@ public final class UpdateSubscriptionPriceHandler
   public void handle(final UpdateSubscriptionPrice command) {
     subscriptions.get(new SubscriptionId(command.getId()))
         .ifPresent(value -> {
-              value.updatePrice(new SubscriptionPrice(command.getPrice(), command.getCurrencyCode()));
+              value.updatePrice(new SubscriptionPrice(command.getPriceAmount(), command.getPriceCurrency()));
               subscriptions.save(value);
             }
         );

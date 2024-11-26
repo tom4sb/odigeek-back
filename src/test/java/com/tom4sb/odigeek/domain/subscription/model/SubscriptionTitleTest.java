@@ -4,7 +4,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 
 import org.junit.jupiter.api.Test;
 
-final class SubscriptionTitleTest {
+class SubscriptionTitleTest {
 
   @Test
   void should_fail_with_null_value() {

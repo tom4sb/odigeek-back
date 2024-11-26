@@ -10,23 +10,23 @@ public final class CreateSubscription
   private final UUID id;
   private final String title;
   private final List<String> categories;
-  private final Double price;
-  private final String currencyCode;
+  private final Double priceAmount;
+  private final String priceCurrency;
   private final String description;
 
   public CreateSubscription(
       final UUID id,
       final String title,
       final List<String> categories,
-      final Double price,
-      final String currencyCode,
+      final Double priceAmount,
+      final String priceCurrency,
       final String description
   ) {
     this.id = id;
     this.title = title;
     this.categories = categories;
-    this.price = price;
-    this.currencyCode = currencyCode;
+    this.priceAmount = priceAmount;
+    this.priceCurrency = priceCurrency;
     this.description = description;
   }
 
@@ -42,12 +42,12 @@ public final class CreateSubscription
     return categories;
   }
 
-  public Double getPrice() {
-    return price;
+  public Double getPriceAmount() {
+    return priceAmount;
   }
 
-  public String getCurrencyCode() {
-    return currencyCode;
+  public String getPriceCurrency() {
+    return priceCurrency;
   }
 
   public String getDescription() {

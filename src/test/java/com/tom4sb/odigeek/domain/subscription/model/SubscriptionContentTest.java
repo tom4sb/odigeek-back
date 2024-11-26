@@ -5,7 +5,7 @@ import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import java.util.Collections;
 import org.junit.jupiter.api.Test;
 
-final class SubscriptionContentTest {
+class SubscriptionContentTest {
 
   @Test
   void should_fail_with_null_values() {

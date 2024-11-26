@@ -25,8 +25,8 @@ public class UpdateSubscriptionPriceController {
   public void action(@RequestBody final UpdateSubscriptionPriceRequest request) {
     final var command = new UpdateSubscriptionPrice(
         UUID.fromString(request.id),
-        request.price,
-        request.currency
+        request.priceAmount,
+        request.priceCurrency
     );
 
     commandBus.dispatch(command);
@@ -34,8 +34,8 @@ public class UpdateSubscriptionPriceController {
 
   static final class UpdateSubscriptionPriceRequest {
     public String id;
-    public Double price;
-    public String currency;
+    public Double priceAmount;
+    public String priceCurrency;
   }
 
 }

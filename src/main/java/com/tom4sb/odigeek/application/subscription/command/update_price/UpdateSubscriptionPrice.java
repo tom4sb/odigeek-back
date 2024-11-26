@@ -7,29 +7,29 @@ public final class UpdateSubscriptionPrice
     extends Command {
 
   private final UUID id;
-  private final Double price;
-  private final String currencyCode;
+  private final Double priceAmount;
+  private final String priceCurrency;
 
   public UpdateSubscriptionPrice(
       final UUID id,
-      final Double price,
-      final String currencyCode
+      final Double priceAmount,
+      final String priceCurrency
   ) {
     this.id = id;
-    this.price = price;
-    this.currencyCode = currencyCode;
+    this.priceAmount = priceAmount;
+    this.priceCurrency = priceCurrency;
   }
 
   public UUID getId() {
     return id;
   }
 
-  public Double getPrice() {
-    return price;
+  public Double getPriceAmount() {
+    return priceAmount;
   }
 
-  public String getCurrencyCode() {
-    return currencyCode;
+  public String getPriceCurrency() {
+    return priceCurrency;
   }
 
 }

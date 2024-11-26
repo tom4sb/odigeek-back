@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.infrastructure.domain.subscription;
 
-import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle.SubscriptionTitleValue.SupplierOption.PEOPLE;
-import static com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle.SubscriptionTitleValue.SupplierOption.PLANETS;
+import static com.tom4sb.odigeek.domain.shared.model.SubscriptionTitleValue.SupplierOption.PEOPLE;
+import static com.tom4sb.odigeek.domain.shared.model.SubscriptionTitleValue.SupplierOption.PLANETS;
 
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle;

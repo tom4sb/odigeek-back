@@ -1,5 +1,6 @@
 package com.tom4sb.odigeek.domain.subscription.model;
 
+import com.tom4sb.odigeek.domain.shared.model.SubscriptionCategoryValue;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -23,23 +24,10 @@ public class SubscriptionCategories {
 
   private static Set<SubscriptionCategoryValue> buildCategories(final List<String> categoryNames) {
     return categoryNames.stream()
-        .map(SubscriptionCategories::parseToCategoryValue)
+        .map(SubscriptionCategoryValue::create)
         .filter(Optional::isPresent)
         .map(Optional::get)
         .collect(Collectors.toSet());
-  }
-
-  private static Optional<SubscriptionCategoryValue> parseToCategoryValue(final String categoryName) {
-    try {
-      return Optional.of(SubscriptionCategoryValue.valueOf(categoryName));
-    } catch (final IllegalArgumentException e) {
-      return Optional.empty();
-    }
-  }
-
-
-  public enum SubscriptionCategoryValue { // TODO add new categories
-    ANIME
   }
 
 }
