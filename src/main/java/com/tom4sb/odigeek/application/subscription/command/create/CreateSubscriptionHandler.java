@@ -1,6 +1,6 @@
 package com.tom4sb.odigeek.application.subscription.command.create;
 
-import com.tom4sb.odigeek.domain.shared.messaging.CommandHandler;
+import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
 import com.tom4sb.odigeek.domain.subscription.model.Subscription;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionCategories;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionDataLoader;

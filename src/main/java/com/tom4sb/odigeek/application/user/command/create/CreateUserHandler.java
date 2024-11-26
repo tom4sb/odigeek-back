@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.application.user.command.create;
 
-import com.tom4sb.odigeek.domain.shared.messaging.CommandHandler;
-import com.tom4sb.odigeek.domain.shared.provider.IdProvider;
+import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
+import com.tom4sb.odigeek.application.shared.provider.IdProvider;
 import com.tom4sb.odigeek.domain.user.model.User;
 import com.tom4sb.odigeek.domain.user.model.UserAge;
 import com.tom4sb.odigeek.domain.user.model.UserBankDetails;

@@ -1,6 +1,6 @@
 package com.tom4sb.odigeek.application.subscription.command.create;
 
-import com.tom4sb.odigeek.domain.shared.messaging.Command;
+import com.tom4sb.odigeek.application.shared.messaging.Command;
 import java.util.List;
 import java.util.UUID;
 

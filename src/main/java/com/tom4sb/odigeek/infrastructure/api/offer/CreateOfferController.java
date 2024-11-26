@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.infrastructure.api.offer;
 
 import com.tom4sb.odigeek.application.offer.command.create.CreateOffer;
-import com.tom4sb.odigeek.domain.shared.messaging.CommandBus;
+import com.tom4sb.odigeek.application.shared.messaging.CommandBus;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

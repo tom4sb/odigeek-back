@@ -1,6 +1,6 @@
 package com.tom4sb.odigeek.infrastructure.domain.shared.provider;
 
-import com.tom4sb.odigeek.domain.shared.provider.IdProvider;
+import com.tom4sb.odigeek.application.shared.provider.IdProvider;
 import java.util.UUID;
 import org.springframework.stereotype.Service;
 

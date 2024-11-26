@@ -1,6 +1,6 @@
 package com.tom4sb.odigeek.application.subscription.command.update_price;
 
-import com.tom4sb.odigeek.domain.shared.messaging.CommandHandler;
+import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionId;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionPrice;
 import com.tom4sb.odigeek.domain.subscription.model.Subscriptions;

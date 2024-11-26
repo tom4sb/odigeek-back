@@ -1,8 +1,8 @@
 package com.tom4sb.odigeek.infrastructure.domain.shared.messaging;
 
-import com.tom4sb.odigeek.domain.shared.messaging.Command;
-import com.tom4sb.odigeek.domain.shared.messaging.CommandBus;
-import com.tom4sb.odigeek.domain.shared.messaging.CommandHandler;
+import com.tom4sb.odigeek.application.shared.messaging.Command;
+import com.tom4sb.odigeek.application.shared.messaging.CommandBus;
+import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
 import java.lang.reflect.ParameterizedType;
 import java.util.HashMap;
 import java.util.List;

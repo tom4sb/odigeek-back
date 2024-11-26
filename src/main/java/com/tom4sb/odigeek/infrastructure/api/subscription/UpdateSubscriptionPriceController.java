@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.infrastructure.api.subscription;
 
 import com.tom4sb.odigeek.application.subscription.command.update_price.UpdateSubscriptionPrice;
-import com.tom4sb.odigeek.domain.shared.messaging.CommandBus;
+import com.tom4sb.odigeek.application.shared.messaging.CommandBus;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PatchMapping;
