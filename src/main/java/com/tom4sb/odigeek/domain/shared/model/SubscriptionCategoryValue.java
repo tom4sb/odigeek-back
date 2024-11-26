@@ -5,7 +5,7 @@ import java.util.Optional;
 public enum SubscriptionCategoryValue {
   ANIME,
   LIVING_BEINGS,
-  SOAP_OPERA;
+  SPACE_OPERA;
 
 
   public static Optional<SubscriptionCategoryValue> create(final String categoryName) {
