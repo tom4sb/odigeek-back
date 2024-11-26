@@ -16,6 +16,7 @@ public final class UpdateSubscriptionPriceHandler
     this.subscriptions = subscriptions;
   }
 
+  @Override
   public void handle(final UpdateSubscriptionPrice command) {
     subscriptions.get(new SubscriptionId(command.getId()))
         .ifPresent(value -> {

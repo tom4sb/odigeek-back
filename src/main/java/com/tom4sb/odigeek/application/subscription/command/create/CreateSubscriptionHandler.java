@@ -26,6 +26,7 @@ public final class CreateSubscriptionHandler
     this.subscriptions = subscriptions;
   }
 
+  @Override
   public void handle(final CreateSubscription command) {
     final var id = new SubscriptionId(command.getId());
     final var title = new SubscriptionTitle(command.getTitle());
