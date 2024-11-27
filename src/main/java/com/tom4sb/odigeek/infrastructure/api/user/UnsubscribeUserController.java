@@ -1,7 +1,7 @@
 package com.tom4sb.odigeek.infrastructure.api.user;
 
 import com.tom4sb.odigeek.application.shared.messaging.CommandBus;
-import com.tom4sb.odigeek.application.user.command.subscribe.SubscribeUser;
+import com.tom4sb.odigeek.application.user.command.unsubscribe.UnsubscribeUser;
 import java.util.UUID;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -26,7 +26,7 @@ public class UnsubscribeUserController {
       @PathVariable final UUID userId,
       @PathVariable final UUID subscriptionId
   ) {
-    final var command = new SubscribeUser(userId, subscriptionId);
+    final var command = new UnsubscribeUser(userId, subscriptionId);
 
     commandBus.dispatch(command);
   }
