@@ -15,7 +15,7 @@ public class UserSubscriptions {
     return values;
   }
 
-  public void enroll(final SubscriptionId subscriptionId) {
+  public void subscribe(final SubscriptionId subscriptionId) {
     values.add(subscriptionId);
   }
 

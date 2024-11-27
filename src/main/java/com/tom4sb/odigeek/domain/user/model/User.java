@@ -2,7 +2,6 @@ package com.tom4sb.odigeek.domain.user.model;
 
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionId;
 import java.util.ArrayList;
-import java.util.Collections;
 
 public record User(
     UserId id,
@@ -45,8 +44,8 @@ public record User(
     );
   }
 
-  public void enroll(final SubscriptionId subscriptionId) {
-    subscriptions.enroll(subscriptionId);
+  public void subscribe(final SubscriptionId subscriptionId) {
+    subscriptions.subscribe(subscriptionId);
   }
 
 }

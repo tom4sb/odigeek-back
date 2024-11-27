@@ -1,4 +1,4 @@
-package com.tom4sb.odigeek.application.user.command.enroll;
+package com.tom4sb.odigeek.application.user.command.subscribe;
 
 import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionId;
@@ -9,13 +9,13 @@ import java.util.NoSuchElementException;
 import org.springframework.stereotype.Service;
 
 @Service
-public final class EnrollUserHandler
-    implements CommandHandler<EnrollUser> {
+public final class SubscribeUserHandler
+    implements CommandHandler<SubscribeUser> {
 
   private final Users users;
   private final Subscriptions subscriptions;
 
-  public EnrollUserHandler(
+  public SubscribeUserHandler(
       final Users users,
       final Subscriptions subscriptions
   ) {
@@ -24,14 +24,14 @@ public final class EnrollUserHandler
   }
 
   @Override
-  public void handle(final EnrollUser command) {
+  public void handle(final SubscribeUser command) {
     final var user = users.findById(new UserId(command.getUserId()))
         .orElseThrow(NoSuchElementException::new);
     final var subscriptionId = new SubscriptionId(command.getSubscriptionId());
 
     subscriptions.findById(subscriptionId)
             .ifPresent(value -> {
-              user.enroll(subscriptionId);
+              user.subscribe(subscriptionId);
               users.save(user);
             });
   }
