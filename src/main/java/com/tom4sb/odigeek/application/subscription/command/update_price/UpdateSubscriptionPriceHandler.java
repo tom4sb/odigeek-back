@@ -18,7 +18,7 @@ public final class UpdateSubscriptionPriceHandler
 
   @Override
   public void handle(final UpdateSubscriptionPrice command) {
-    subscriptions.get(new SubscriptionId(command.getId()))
+    subscriptions.findById(new SubscriptionId(command.getId()))
         .ifPresent(value -> {
               value.updatePrice(new SubscriptionPrice(command.getPriceAmount(), command.getPriceCurrency()));
               subscriptions.save(value);

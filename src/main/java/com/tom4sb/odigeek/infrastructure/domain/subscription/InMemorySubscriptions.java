@@ -41,7 +41,7 @@ public class InMemorySubscriptions
   }
 
   @Override
-  public Optional<Subscription> get(final SubscriptionId id) {
+  public Optional<Subscription> findById(final SubscriptionId id) {
     return Optional.ofNullable(subscriptions.get(id));
   }
 

@@ -18,7 +18,7 @@ public final class UpdateSubscriptionStatusHandler
 
   @Override
   public void handle(final UpdateSubscriptionStatus command) {
-    subscriptions.get(new SubscriptionId(command.getId()))
+    subscriptions.findById(new SubscriptionId(command.getId()))
         .ifPresent(value -> {
               value.updateStatus(new SubscriptionStatus(command.getStatus()));
               subscriptions.save(value);

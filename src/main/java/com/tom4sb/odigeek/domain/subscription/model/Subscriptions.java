@@ -9,7 +9,7 @@ public interface Subscriptions {
 
   List<Subscription> getAll();
 
-  Optional<Subscription> get(SubscriptionId id);
+  Optional<Subscription> findById(SubscriptionId id);
 
   Optional<Subscription> findByTitle(SubscriptionTitle title);
 

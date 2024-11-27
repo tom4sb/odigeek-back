@@ -5,6 +5,7 @@ import com.tom4sb.odigeek.domain.user.model.UserId;
 import com.tom4sb.odigeek.domain.user.model.Users;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Optional;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -25,6 +26,11 @@ public class InMemoryUsers
         user.username().value(),
         user.role().getValue()
     );
+  }
+
+  @Override
+  public Optional<User> findById(final UserId id) {
+    return Optional.ofNullable(users.get(id));
   }
 
 }

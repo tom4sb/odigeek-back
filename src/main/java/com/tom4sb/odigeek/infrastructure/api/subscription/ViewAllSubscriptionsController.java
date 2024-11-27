@@ -21,7 +21,7 @@ public class ViewAllSubscriptionsController {
   }
 
   @GetMapping
-  @ResponseStatus(HttpStatus.OK) // TODO chech error responses
+  @ResponseStatus(HttpStatus.OK) // TODO check error responses
   public List<Subscription> action() {
     final var query = new ViewAllSubscriptions();
 
