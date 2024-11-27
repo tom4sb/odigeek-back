@@ -1,5 +1,6 @@
 package com.tom4sb.odigeek.infrastructure.domain.subscription;
 
+import com.tom4sb.odigeek.domain.shared.model.SubscriptionCategoryValue;
 import com.tom4sb.odigeek.domain.subscription.model.Subscription;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionId;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle;
@@ -8,6 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Optional;
+import java.util.stream.Collectors;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Repository;
@@ -50,6 +52,13 @@ public class InMemorySubscriptions
     return subscriptions.values().stream()
         .filter(subscription -> subscription.getTitle().equals(title))
         .findFirst();
+  }
+
+  @Override
+  public List<Subscription> findByCategory(final SubscriptionCategoryValue categoryValue) {
+    return subscriptions.values().stream()
+        .filter(subscription -> subscription.getCategories().getValues().contains(categoryValue))
+        .collect(Collectors.toList());
   }
 
   public Map<SubscriptionId, Subscription> getSubscriptions() {

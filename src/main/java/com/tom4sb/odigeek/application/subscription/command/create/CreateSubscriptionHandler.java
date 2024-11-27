@@ -1,6 +1,8 @@
 package com.tom4sb.odigeek.application.subscription.command.create;
 
 import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
+import com.tom4sb.odigeek.domain.shared.model.SubscriptionCategoryValue;
+import com.tom4sb.odigeek.domain.subscription.exception.SubscriptionTitleAlreadyExistWithinCategory;
 import com.tom4sb.odigeek.domain.subscription.model.Subscription;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionCategories;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent;
@@ -33,6 +35,8 @@ public final class CreateSubscriptionHandler
 
   @Override
   public void handle(final CreateSubscription command) {
+    validateTitleWithinCategory(command);
+
     final var id = new SubscriptionId(command.getId());
     final var title = new SubscriptionTitle(command.getTitle());
     final var categories = new SubscriptionCategories(command.getCategories());
@@ -52,6 +56,15 @@ public final class CreateSubscriptionHandler
     );
 
     subscriptions.save(subscription);
+  }
+
+  private void validateTitleWithinCategory(final CreateSubscription command) {
+    if (command.getCategories().stream()
+        .map(SubscriptionCategoryValue::valueOf)
+        .flatMap(category -> subscriptions.findByCategory(category).stream())
+        .anyMatch(subscription -> subscription.getTitle().getValue().name().equals(command.getTitle()))) {
+      throw new SubscriptionTitleAlreadyExistWithinCategory();
+    }
   }
 
   private SubscriptionContent buildContent(final SubscriptionTitle title) {
