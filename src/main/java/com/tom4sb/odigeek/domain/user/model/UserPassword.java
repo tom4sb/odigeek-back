@@ -7,7 +7,7 @@ public record UserPassword(
 ) {
 
   public UserPassword {
-    if (Objects.isNull(value) || value.length() < 8) { // TODO encrypt pass
+    if (Objects.isNull(value) || value.length() < 8) {
       throw new IllegalArgumentException("User password cannot be null and must be at least 8 characters long");
     }
   }

@@ -23,7 +23,7 @@ public class SubscriptionExceptionHandler {
   }
 
   @ExceptionHandler(IllegalArgumentException.class)
-  @ResponseStatus(HttpStatus.NOT_FOUND)
+  @ResponseStatus(HttpStatus.BAD_REQUEST)
   public String handleIllegalArgumentException(final IllegalArgumentException e) {
     return "Exception IllegalArgumentException thrown: " + e.getMessage();
   }

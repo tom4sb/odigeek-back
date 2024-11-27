@@ -20,7 +20,7 @@ public class CreateUserController {
   }
 
   @PostMapping
-  @ResponseStatus(HttpStatus.CREATED) // TODO: Must return 403 if user already exists
+  @ResponseStatus(HttpStatus.CREATED)
   public void action(@RequestBody final CreateUserRequest request) {
     final var command = new CreateUser(
         request.username,

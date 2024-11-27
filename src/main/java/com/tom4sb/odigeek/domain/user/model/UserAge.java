@@ -7,7 +7,7 @@ public record UserAge(
 ) {
 
   public UserAge {
-    if (Objects.isNull(value) || value < 18) { // TODO check if is correct
+    if (Objects.isNull(value) || value < 18) {
       throw new IllegalArgumentException("User age cannot be null or less than 18");
     }
   }

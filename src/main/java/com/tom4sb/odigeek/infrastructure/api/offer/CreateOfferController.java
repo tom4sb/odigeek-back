@@ -20,7 +20,7 @@ public class CreateOfferController {
   }
 
   @PostMapping
-  @ResponseStatus(HttpStatus.CREATED) // TODO must return 403 if exists
+  @ResponseStatus(HttpStatus.CREATED)
   public void action(@RequestBody final CreateOfferRequest request) {
     final var command = new CreateOffer(
         request.title,

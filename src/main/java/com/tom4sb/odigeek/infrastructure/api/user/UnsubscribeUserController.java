@@ -21,7 +21,7 @@ public class UnsubscribeUserController {
   }
 
   @DeleteMapping("/{userId}/subscription/{subscriptionId}")
-  @ResponseStatus(HttpStatus.NO_CONTENT) // 204 No Content as it's an update
+  @ResponseStatus(HttpStatus.NO_CONTENT)
   public void action(
       @PathVariable final UUID userId,
       @PathVariable final UUID subscriptionId

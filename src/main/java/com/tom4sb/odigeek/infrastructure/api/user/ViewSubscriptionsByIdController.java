@@ -23,7 +23,7 @@ public class ViewSubscriptionsByIdController {
   }
 
   @GetMapping("/{userId}/subscription")
-  @ResponseStatus(HttpStatus.OK) // TODO check error responses
+  @ResponseStatus(HttpStatus.OK)
   public List<Subscription> action(@PathVariable final UUID userId) {
     final var query = new ViewSubscriptionsById(userId);
 

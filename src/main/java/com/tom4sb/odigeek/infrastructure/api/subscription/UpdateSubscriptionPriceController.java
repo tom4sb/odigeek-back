@@ -21,7 +21,7 @@ public class UpdateSubscriptionPriceController {
   }
 
   @PatchMapping
-  @ResponseStatus(HttpStatus.OK) // TODO if fails, must return 304 (Not Modified), 400 (Bad Request), or 422 (Unprocessable Entity)
+  @ResponseStatus(HttpStatus.OK)
   public void action(@RequestBody final UpdateSubscriptionPriceRequest request) {
     final var command = new UpdateSubscriptionPrice(
         UUID.fromString(request.id),

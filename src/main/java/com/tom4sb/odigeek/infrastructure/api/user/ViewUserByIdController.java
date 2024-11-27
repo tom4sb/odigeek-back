@@ -34,7 +34,7 @@ public class ViewUserByIdController {
   }
 
   @GetMapping("/{userId}")
-  @ResponseStatus(HttpStatus.OK) // TODO check error responses
+  @ResponseStatus(HttpStatus.OK)
   public UserProjection action(@PathVariable final UUID userId) {
     final var query = new ViewUserById(userId);
 

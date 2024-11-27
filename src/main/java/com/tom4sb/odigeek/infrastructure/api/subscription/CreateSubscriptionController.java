@@ -22,7 +22,7 @@ public class CreateSubscriptionController {
   }
 
   @PostMapping
-  @ResponseStatus(HttpStatus.CREATED) // TODO must return 403 if exists
+  @ResponseStatus(HttpStatus.CREATED)
   public void action(@RequestBody final CreateSubscriptionRequest request) {
     final var command = new CreateSubscription(
         UUID.fromString(request.id),
