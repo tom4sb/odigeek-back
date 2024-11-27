@@ -1,6 +1,6 @@
 {
     "info": {
-        "_postman_id": "24b2416e-643c-4d79-b0e3-9cca0c4adf7f",
+        "_postman_id": "8a246063-e790-4f05-8dc2-0db3cba952ef",
         "name": "OdiGeek",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
         "description": ""
@@ -39,7 +39,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"title\": \"GLOBAL_HALF_OFFER\",\n  \"description\": \"Oferta global\",\n  \"ruleMultiplier\": 0.5,\n  \"ruleCurrency\": \"USD\",\n  \"scope\": \"CATALOG\",\n  \"periodStart\": \"2024-01-01\",\n  \"periodEnd\": \"2024-12-31\"\n}\n"
+                            "raw": "{\n  \"title\": \"GLOBAL_HALF_OFFER\",\n  \"description\": \"Oferta global\",\n  \"ruleMultiplier\": 0.5,\n  \"ruleCurrency\": \"EUR\",\n  \"scope\": \"TITLE\",\n  \"scopeTitle\": \"STAR_WARS_PLANETS\",\n  \"scopeCategory\": \"LIVING_BEINGS\",\n  \"periodStart\": \"2024-11-27\",\n  \"periodEnd\": \"2024-12-31\"\n}\n"
                         }
                     }
                 }
@@ -170,7 +170,7 @@
                                     "language": "json"
                                 }
                             },
-                            "raw": "{\n  \"username\": \"georgelucas\",\n  \"password\": \"pass1234\",\n  \"fullName\": \"George Lucas\",\n  \"email\": \"georgelucas@mail.com\",\n  \"phone\": \"+34600000000\",\n  \"age\": 22,\n  \"homeCity\": \"Modesto\",\n  \"creditCard\": \"1234567890123456\",\n  \"bankAccount\": \"12345678901234567890\",\n  \"role\": \"USER\"\n}\n"
+                            "raw": "{\n  \"username\": \"georgelucas\",\n  \"password\": \"pass1234\",\n  \"fullName\": \"George Lucas\",\n  \"email\": \"georgelucas@mail.com\",\n  \"phone\": \"+34600000000\",\n  \"age\": 22,\n  \"homeCity\": \"Modesto\",\n  \"creditCard\": \"1234567890123456\",\n  \"bankAccount\": \"12345678901234567890\",\n  \"role\": \"GEEK_SPECIALIST\"\n}\n"
                         }
                     }
                 },
