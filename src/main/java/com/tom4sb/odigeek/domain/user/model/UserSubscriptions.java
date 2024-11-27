@@ -23,4 +23,11 @@ public class UserSubscriptions {
     values.remove(subscriptionId);
   }
 
+  @Override
+  public String toString() {
+    return "UserSubscriptions{" +
+        "values=" + values +
+        '}';
+  }
+
 }

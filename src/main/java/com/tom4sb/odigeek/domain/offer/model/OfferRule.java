@@ -27,4 +27,12 @@ public class OfferRule {
     return currency;
   }
 
+  @Override
+  public String toString() {
+    return "OfferRule{" +
+        "multiplier=" + multiplier +
+        ", currency=" + currency +
+        '}';
+  }
+
 }

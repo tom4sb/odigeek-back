@@ -60,4 +60,13 @@ public class OfferScope {
 
   }
 
+  @Override
+  public String toString() {
+    return "OfferScope{" +
+        "value=" + value +
+        ", title=" + title +
+        ", category=" + category +
+        '}';
+  }
+
 }

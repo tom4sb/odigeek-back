@@ -108,4 +108,15 @@ public class Subscription {
     }
   }
 
+  public String toStringForLog() {
+    return "Subscription{" +
+        "id=" + id +
+        ", title=" + title +
+        ", categories=" + categories +
+        ", price=" + price +
+        ", description=" + description +
+        ", status=" + status +
+        '}';
+  }
+
 }

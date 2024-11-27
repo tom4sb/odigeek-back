@@ -30,4 +30,11 @@ public class SubscriptionCategories {
         .collect(Collectors.toSet());
   }
 
+  @Override
+  public String toString() {
+    return "SubscriptionCategories{" +
+        "values=" + values +
+        '}';
+  }
+
 }

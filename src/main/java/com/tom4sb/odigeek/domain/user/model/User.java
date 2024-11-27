@@ -52,4 +52,20 @@ public record User(
     subscriptions.unsubscribe(subscriptionId);
   }
 
+  @Override
+  public String toString() {
+    return "User{" +
+        "id=" + id +
+        ", username=" + username +
+        ", fullName=" + fullName +
+        ", email=" + email +
+        ", phone=" + phone +
+        ", age=" + age +
+        ", homeCity=" + homeCity +
+        ", bankDetails=" + bankDetails +
+        ", role=" + role +
+        ", subscriptions=" + subscriptions +
+        '}';
+  }
+
 }

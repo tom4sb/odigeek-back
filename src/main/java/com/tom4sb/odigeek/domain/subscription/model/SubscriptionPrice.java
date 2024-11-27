@@ -27,4 +27,12 @@ public class SubscriptionPrice {
     return currency;
   }
 
+  @Override
+  public String toString() {
+    return "SubscriptionPrice{" +
+        "amount=" + amount +
+        ", currency=" + currency +
+        '}';
+  }
+
 }

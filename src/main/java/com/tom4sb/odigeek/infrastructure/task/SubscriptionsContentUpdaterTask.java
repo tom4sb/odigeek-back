@@ -38,7 +38,9 @@ public class SubscriptionsContentUpdaterTask {
 
   private void updateSubscriptionContent(final String title) {
     log.info("Updating {} subscription content...", title);
+
     commandBus.dispatch(new UpdateSubscriptionContent(title));
+
     log.info("{} subscription content updated!", title);
   }
 

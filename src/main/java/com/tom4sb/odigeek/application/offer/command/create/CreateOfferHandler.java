@@ -1,5 +1,7 @@
 package com.tom4sb.odigeek.application.offer.command.create;
 
+import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
+import com.tom4sb.odigeek.application.shared.provider.IdProvider;
 import com.tom4sb.odigeek.domain.offer.model.Offer;
 import com.tom4sb.odigeek.domain.offer.model.OfferDescription;
 import com.tom4sb.odigeek.domain.offer.model.OfferId;
@@ -8,18 +10,19 @@ import com.tom4sb.odigeek.domain.offer.model.OfferRule;
 import com.tom4sb.odigeek.domain.offer.model.OfferScope;
 import com.tom4sb.odigeek.domain.offer.model.OfferTitle;
 import com.tom4sb.odigeek.domain.offer.model.Offers;
-import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
-import com.tom4sb.odigeek.application.shared.provider.IdProvider;
 import java.time.Instant;
 import java.time.LocalDate;
 import java.time.ZoneOffset;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public final class CreateOfferHandler
     implements CommandHandler<CreateOffer> {
 
+  private static final Logger log = LoggerFactory.getLogger(CreateOfferHandler.class);
   private final IdProvider<UUID> idProvider;
   private final Offers offers;
 
@@ -57,6 +60,8 @@ public final class CreateOfferHandler
     );
 
     offers.save(offer);
+
+    log.info("Offer saved! {}", offer);
   }
 
   private Instant parseToInstant(final String dateAsString) {

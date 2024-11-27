@@ -17,4 +17,12 @@ public record OfferPeriod(
     }
   }
 
+  @Override
+  public String toString() {
+    return "OfferPeriod{" +
+        "start=" + start +
+        ", end=" + end +
+        '}';
+  }
+
 }

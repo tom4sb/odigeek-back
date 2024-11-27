@@ -22,4 +22,12 @@ public record UserBankDetails(
     }
   }
 
+  @Override
+  public String toString() {
+    return "UserBankDetails{" +
+        "creditCard='" + creditCard + '\'' +
+        ", bankAccount='" + bankAccount + '\'' +
+        '}';
+  }
+
 }

@@ -15,12 +15,15 @@ import com.tom4sb.odigeek.infrastructure.task.offer_applier.SubscriptionOfferFul
 import java.time.Instant;
 import java.util.Map;
 import java.util.stream.Collectors;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.stereotype.Component;
 
 @Component
 public class OfferApplierTask {
 
+  private static final Logger log = LoggerFactory.getLogger(OfferApplierTask.class);
   private final Map<OfferScopeValue, SubscriptionOfferApplier> subscriptionOfferAppliers;
   private final Offers offers;
   private final Subscriptions subscriptions;
@@ -40,8 +43,10 @@ public class OfferApplierTask {
   }
 
   //@Scheduled(cron = "*/15 * * * * *") // Every 15 seconds
-  @Scheduled(cron = "0 5 0 * * *") // Everyday at 00:05 am
+  @Scheduled(cron = "0 5 0 * * *") // Every day at 00:05 am
   public void run() {
+    log.info("********** Starting task to apply offers... **********");
+
     final var offersStartingTodayByScope = offers.findByPeriodStart(Instant.now()).stream()
         .collect(Collectors.groupingBy(Offer::scope));
 
@@ -52,6 +57,8 @@ public class OfferApplierTask {
                 subscriptions.getAll()
             )
     );
+
+    log.info("********** Task to apply offers finished!!! **********");
   }
 
 }

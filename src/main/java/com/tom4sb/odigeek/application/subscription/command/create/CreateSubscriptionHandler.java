@@ -1,5 +1,6 @@
 package com.tom4sb.odigeek.application.subscription.command.create;
 
+import com.tom4sb.odigeek.application.offer.command.create.CreateOfferHandler;
 import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
 import com.tom4sb.odigeek.domain.shared.model.SubscriptionCategoryValue;
 import com.tom4sb.odigeek.domain.subscription.exception.SubscriptionTitleAlreadyExistWithinCategory;
@@ -16,12 +17,15 @@ import com.tom4sb.odigeek.domain.subscription.model.Subscriptions;
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.util.List;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public final class CreateSubscriptionHandler
     implements CommandHandler<CreateSubscription> {
 
+  private static final Logger log = LoggerFactory.getLogger(CreateSubscriptionHandler.class);
   private final SubscriptionDataLoader subscriptionDataLoader;
   private final Subscriptions subscriptions;
 
@@ -56,6 +60,8 @@ public final class CreateSubscriptionHandler
     );
 
     subscriptions.save(subscription);
+
+    log.info("Subscription saved! {}", subscription.toStringForLog());
   }
 
   private void validateTitleWithinCategory(final CreateSubscription command) {

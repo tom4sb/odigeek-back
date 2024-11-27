@@ -2,6 +2,7 @@ package com.tom4sb.odigeek.application.user.command.create;
 
 import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
 import com.tom4sb.odigeek.application.shared.provider.IdProvider;
+import com.tom4sb.odigeek.application.subscription.command.create.CreateSubscriptionHandler;
 import com.tom4sb.odigeek.domain.user.model.User;
 import com.tom4sb.odigeek.domain.user.model.UserAge;
 import com.tom4sb.odigeek.domain.user.model.UserBankDetails;
@@ -15,12 +16,15 @@ import com.tom4sb.odigeek.domain.user.model.UserPhone;
 import com.tom4sb.odigeek.domain.user.model.UserRole;
 import com.tom4sb.odigeek.domain.user.model.Users;
 import java.util.UUID;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 @Service
 public final class CreateUserHandler
     implements CommandHandler<CreateUser> {
 
+  private static final Logger log = LoggerFactory.getLogger(CreateUserHandler.class);
   private final IdProvider<UUID> idProvider;
   private final Users users;
 
@@ -59,6 +63,8 @@ public final class CreateUserHandler
     );
 
     users.save(user);
+
+    log.info("User saved! {}", user);
   }
 
 }

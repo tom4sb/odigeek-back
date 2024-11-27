@@ -38,4 +38,11 @@ public class UserRole {
 
   }
 
+  @Override
+  public String toString() {
+    return "UserRole{" +
+        "value=" + value +
+        '}';
+  }
+
 }

@@ -33,4 +33,11 @@ public class SubscriptionTitle {
     return Objects.hashCode(value);
   }
 
+  @Override
+  public String toString() {
+    return "SubscriptionTitle{" +
+        "value=" + value +
+        '}';
+  }
+
 }

@@ -20,4 +20,16 @@ public record Offer(
     return new Offer(id, title, description, rule, scope, period);
   }
 
+  @Override
+  public String toString() {
+    return "Offer{" +
+        "id=" + id +
+        ", title=" + title +
+        ", description=" + description +
+        ", rule=" + rule +
+        ", scope=" + scope +
+        ", period=" + period +
+        '}';
+  }
+
 }
