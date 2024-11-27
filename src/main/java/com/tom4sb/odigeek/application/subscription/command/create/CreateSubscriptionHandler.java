@@ -3,6 +3,7 @@ package com.tom4sb.odigeek.application.subscription.command.create;
 import com.tom4sb.odigeek.application.shared.messaging.CommandHandler;
 import com.tom4sb.odigeek.domain.subscription.model.Subscription;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionCategories;
+import com.tom4sb.odigeek.domain.subscription.model.SubscriptionContent;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionDataLoader;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionDescription;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionId;
@@ -10,6 +11,9 @@ import com.tom4sb.odigeek.domain.subscription.model.SubscriptionPrice;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionStatus;
 import com.tom4sb.odigeek.domain.subscription.model.SubscriptionTitle;
 import com.tom4sb.odigeek.domain.subscription.model.Subscriptions;
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.util.List;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -35,7 +39,7 @@ public final class CreateSubscriptionHandler
     final var price = new SubscriptionPrice(command.getPriceAmount(), command.getPriceCurrency());
     final var description = new SubscriptionDescription(command.getDescription());
     final var status = new SubscriptionStatus(command.getActive());
-    final var content = subscriptionDataLoader.load(title);
+    final var content = buildContent(title);
 
     final var subscription = Subscription.create(
         id,
@@ -48,6 +52,18 @@ public final class CreateSubscriptionHandler
     );
 
     subscriptions.save(subscription);
+  }
+
+  private SubscriptionContent buildContent(final SubscriptionTitle title) {
+    final var apiTurnedOffDays = List.of(DayOfWeek.SATURDAY, DayOfWeek.SUNDAY);
+    final var isApiWorking = !apiTurnedOffDays.contains(LocalDate.now().getDayOfWeek());
+    if (isApiWorking) {
+      return subscriptionDataLoader.load(title);
+    }
+
+    return subscriptions.findByTitle(title)
+        .map(Subscription::getContent)
+        .orElseThrow(() -> new IllegalArgumentException("Subscription unavailable"));
   }
 
 }

@@ -2,6 +2,7 @@ package com.tom4sb.odigeek.infrastructure.config;
 
 import static com.tom4sb.odigeek.domain.user.model.UserRole.RoleValue.BI_TEAM;
 import static com.tom4sb.odigeek.domain.user.model.UserRole.RoleValue.FINANCE_TEAM;
+import static com.tom4sb.odigeek.domain.user.model.UserRole.RoleValue.GEEK_SPECIALIST;
 import static com.tom4sb.odigeek.domain.user.model.UserRole.RoleValue.SALES_TEAM;
 import static com.tom4sb.odigeek.domain.user.model.UserRole.RoleValue.USER;
 
@@ -31,6 +32,7 @@ public class SecurityConfiguration {
                     FINANCE_TEAM.name(),
                     SALES_TEAM.name()
                 )
+                .requestMatchers("/odigeek/api/subscription").hasRole(GEEK_SPECIALIST.name())
                 .anyRequest().authenticated()
         )
         .httpBasic(Customizer.withDefaults())
