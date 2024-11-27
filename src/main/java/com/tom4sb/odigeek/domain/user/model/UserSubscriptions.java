@@ -19,4 +19,8 @@ public class UserSubscriptions {
     values.add(subscriptionId);
   }
 
+  public void unsubscribe(final SubscriptionId subscriptionId) {
+    values.remove(subscriptionId);
+  }
+
 }

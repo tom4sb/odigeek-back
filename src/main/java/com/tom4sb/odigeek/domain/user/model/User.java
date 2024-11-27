@@ -48,4 +48,8 @@ public record User(
     subscriptions.subscribe(subscriptionId);
   }
 
+  public void unsubscribe(final SubscriptionId subscriptionId) {
+    subscriptions.unsubscribe(subscriptionId);
+  }
+
 }
