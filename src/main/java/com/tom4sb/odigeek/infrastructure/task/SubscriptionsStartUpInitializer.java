@@ -1,8 +1,9 @@
-package com.tom4sb.odigeek.infrastructure.config;
+package com.tom4sb.odigeek.infrastructure.task;
 
 import com.tom4sb.odigeek.application.shared.messaging.CommandBus;
 import com.tom4sb.odigeek.application.subscription.command.create.CreateSubscription;
 import com.tom4sb.odigeek.application.subscription.command.update_status.UpdateSubscriptionStatus;
+import com.tom4sb.odigeek.infrastructure.config.SubscriptionsProperties;
 import com.tom4sb.odigeek.infrastructure.config.SubscriptionsProperties.DefaultSubscriptionsProperties;
 import java.util.Arrays;
 import java.util.Collections;

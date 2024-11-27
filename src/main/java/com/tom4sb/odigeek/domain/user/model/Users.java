@@ -8,4 +8,6 @@ public interface Users {
 
   Optional<User> findById(UserId id);
 
+  Optional<User> findByUsername(UserName username);
+
 }
