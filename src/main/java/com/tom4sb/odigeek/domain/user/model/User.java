@@ -1,5 +1,9 @@
 package com.tom4sb.odigeek.domain.user.model;
 
+import com.tom4sb.odigeek.domain.subscription.model.SubscriptionId;
+import java.util.ArrayList;
+import java.util.Collections;
+
 public record User(
     UserId id,
     UserName username,
@@ -10,7 +14,8 @@ public record User(
     UserAge age,
     UserHomeCity homeCity,
     UserBankDetails bankDetails,
-    UserRole role
+    UserRole role,
+    UserSubscriptions subscriptions
 ) {
 
   public static User create(
@@ -25,7 +30,23 @@ public record User(
       final UserBankDetails bankDetails,
       final UserRole role
   ) {
-    return new User(id, username, password, fullName, email, phone, age, homeCity, bankDetails, role);
+    return new User(
+        id,
+        username,
+        password,
+        fullName,
+        email,
+        phone,
+        age,
+        homeCity,
+        bankDetails,
+        role,
+        new UserSubscriptions(new ArrayList<>())
+    );
+  }
+
+  public void enroll(final SubscriptionId subscriptionId) {
+    subscriptions.enroll(subscriptionId);
   }
 
 }

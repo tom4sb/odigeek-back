@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 
 @ControllerAdvice
-public class ApiExceptionHandler {
+public class SubscriptionExceptionHandler {
 
   @ExceptionHandler(SubscriptionTitleAlreadyExistWithinCategory.class)
   @ResponseStatus(HttpStatus.CONFLICT)

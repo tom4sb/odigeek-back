@@ -45,7 +45,7 @@ public final class CreateUserHandler
     final var bankDetails = new UserBankDetails(command.getCreditCard(), command.getBankAccount());
     final var role = new UserRole(command.getRole());
 
-    final var user = new User(
+    final var user = User.create(
         id,
         username,
         password,

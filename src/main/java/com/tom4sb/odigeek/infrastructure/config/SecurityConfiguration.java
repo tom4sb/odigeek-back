@@ -32,6 +32,7 @@ public class SecurityConfiguration {
                     FINANCE_TEAM.name(),
                     SALES_TEAM.name()
                 )
+                .requestMatchers("/odigeek/api/user/\\d+/subscriptions/**").hasRole(USER.name())
                 .requestMatchers("/odigeek/api/subscription").hasRole(GEEK_SPECIALIST.name())
                 .anyRequest().authenticated()
         )
